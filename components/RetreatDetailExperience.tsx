@@ -177,7 +177,7 @@ export default function RetreatDetailExperience({
 
       <RetreatStoryScenes retreat={retreat} />
 
-      <footer className="flex flex-col gap-5 bg-[#17251d] px-6 py-8 text-sm text-white/50 md:flex-row md:items-center md:justify-between md:px-12">
+      <footer className="flex flex-col gap-5 bg-[#000000] px-6 py-8 text-sm text-white/50 md:flex-row md:items-center md:justify-between md:px-12">
         <Link
           href="/"
           className="font-semibold tracking-[.15em] text-white uppercase"
