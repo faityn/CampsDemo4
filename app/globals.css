@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #17251d;
+  --cream: #f4f0e7;
+  --sage: #667d6b;
+  --gold: #c4a36a;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: auto;
+}
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+::selection {
+  background: #c4a36a;
+  color: #17251d;
+}
+.noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+}
+.text-balance {
+  text-wrap: balance;
+}
+.image-copy-outline h1,
+.image-copy-outline h2,
+.image-copy-outline h3,
+.image-copy-outline p:not(.no-outline),
+.image-copy-outline span,
+.image-copy-outline a:not(.no-outline) {
+  -webkit-text-stroke: 0.35px rgba(0, 0, 0, 0.58);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.42);
+}
+.hero-image {
+  background-image: url("/images/hoyorzagal/3.JPG");
+  background-size: cover;
+  background-position: center;
+}
+.detail-scene-bg,
+.detail-scene-copy,
+.detail-scene-rail {
+  will-change: transform, opacity;
+}
+.retreat-modal-swiper .swiper-button-next,
+.retreat-modal-swiper .swiper-button-prev {
+  color: #d7bb7c;
+}
+.retreat-modal-swiper .swiper-pagination-bullet {
+  background: #ffffff;
+  opacity: 0.55;
+}
+.retreat-modal-swiper .swiper-pagination-bullet-active {
+  background: #d7bb7c;
+  opacity: 1;
+}
+.detail-thumbnail-swiper {
+  padding: 0;
+}
+.detail-thumbnail-swiper .swiper-button-next,
+.detail-thumbnail-swiper .swiper-button-prev {
+  color: #d7bb7c;
+}
+.detail-thumbnail-swiper .swiper-button-next::after,
+.detail-thumbnail-swiper .swiper-button-prev::after {
+  font-size: 1.35rem;
+}
