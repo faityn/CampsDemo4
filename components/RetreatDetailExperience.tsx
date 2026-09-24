@@ -102,7 +102,7 @@ export default function RetreatDetailExperience({
             ALTAI<span className="text-[#d7bb7c]">.</span>
           </span> */}
           <a
-            href="tel:00000000"
+            href="#contact"
             className="flex items-center gap-2 border-b border-white/50 pb-1 text-sm"
           >
             Book your stay <ArrowUpRight size={15} />

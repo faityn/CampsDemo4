@@ -3,7 +3,14 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ChevronLeft, ChevronRight, Compass, MapPin } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Compass,
+  Mail,
+  MapPin,
+  Phone,
+} from "lucide-react";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper";
@@ -122,7 +129,7 @@ export default function RetreatStoryScenes({
 }: RetreatStoryScenesProps) {
   const root = useRef<HTMLDivElement>(null);
 
-  const [mapLayer, setMapLayer] = useState<"satellite" | "terrain">("terrain");
+  const [mapLayer, setMapLayer] = useState<"map" | "terrain">("map");
 
   const accommodationImages = retreat.accommodationsGallery;
   const restaurantImages = retreat.restaurantGallery;
@@ -137,6 +144,12 @@ export default function RetreatStoryScenes({
 
   const [galleryImage, setGalleryImage] = useState(
     retreat.gallery[0] ?? retreat.heroImage,
+  );
+
+  const mapUrl = new URL(retreat.mapUrl);
+  mapUrl.searchParams.set(
+    "layer",
+    mapLayer === "terrain" ? "cyclemap" : "mapnik",
   );
 
   useLayoutEffect(() => {
@@ -326,13 +339,25 @@ export default function RetreatStoryScenes({
           </p>
 
           <div className="mt-14 flex items-center gap-4 border-t border-[#bfc6b8] pt-5 text-sm text-[#687068]">
-            <Compass size={18} /> {retreat.location}
+            <a
+              href={`tel:${retreat.contactPhone}`}
+              className="flex items-center gap-2 transition-colors hover:text-[#17251d]"
+            >
+              <Phone size={16} /> {retreat.contactPhone}
+            </a>
+            <a
+              href="mailto:info@hoyorzagal.mn"
+              className="flex items-center gap-2 transition-colors hover:text-[#17251d]"
+            >
+              <Mail size={16} /> info@hoyorzagal.mn
+            </a>
+            <Compass size={18} /> {retreat.location}{" "}
           </div>
 
           <div className="relative mt-8 h-96 w-full max-w-full overflow-hidden border border-[#bfc6b8] bg-[#d1d5cc] md:h-96">
             <iframe
               title={`How to get there: ${retreat.title}`}
-              src={retreat.mapUrl}
+              src={mapUrl.toString()}
               loading="lazy"
               className="absolute inset-0 h-full w-full border-0"
             />
@@ -343,13 +368,13 @@ export default function RetreatStoryScenes({
 
             <div className="absolute right-2 top-2 flex gap-1 bg-[#f1ede3]/95 p-1 shadow-lg">
               {[
-                ["satellite", "Satellite"],
+                ["map", "Map"],
                 ["terrain", "Terrain"],
               ].map(([id, label]) => (
                 <button
                   key={id}
                   type="button"
-                  onClick={() => setMapLayer(id as "satellite" | "terrain")}
+                  onClick={() => setMapLayer(id as "map" | "terrain")}
                   className={`px-3 py-2 text-[9px] uppercase tracking-[.14em] transition-colors ${
                     mapLayer === id
                       ? "bg-[#17251d] text-[#f1ede3]"

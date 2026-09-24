@@ -3,6 +3,7 @@ export type Retreat = {
   number: string;
   eyebrow: string;
   title: string;
+  contactPhone: string;
   location: string;
   mapUrl: string;
   mapCenter: string;
@@ -25,6 +26,7 @@ export const retreats: Retreat[] = [
     number: "01",
     eyebrow: "Elsen Tasarkhai, Mongolia",
     title: "HOYOR ZAGAL LODGE",
+    contactPhone: "99984593",
     location: "Elsen Tasarkhai",
     mapUrl:
       "https://www.openstreetmap.org/export/embed.html?bbox=103.55%2C47.15%2C104.10%2C47.55&layer=mapnik&marker=47.35%2C103.82",
@@ -77,6 +79,7 @@ export const retreats: Retreat[] = [
     number: "02",
     eyebrow: "Gorkhi-Terelj, Mongolia",
     title: "ALUNGOO GER HOTEL",
+    contactPhone: "99098720",
     location: "Gorkhi-Terelj",
     mapUrl:
       "https://www.openstreetmap.org/export/embed.html?bbox=107.20%2C47.80%2C107.60%2C48.10&layer=mapnik&marker=47.877372%2C107.430132",
@@ -130,6 +133,7 @@ export const retreats: Retreat[] = [
     number: "03",
     eyebrow: "Gorkhi-Terelj, Mongolia",
     title: "GURU ECO COMPLEX",
+    contactPhone: "99096714",
     location: "Gorkhi-Terelj",
     mapUrl:
       "https://www.openstreetmap.org/export/embed.html?bbox=107.20%2C47.80%2C107.60%2C48.10&layer=mapnik&marker=47.8811077%2C107.4284165",

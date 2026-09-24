@@ -4,7 +4,7 @@ import { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowDown, CalendarDays, MapPin, Phone, Sparkles } from "lucide-react";
+import { ArrowDown, Sparkles } from "lucide-react";
 import { retreats } from "../lib/retreats";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -217,28 +217,51 @@ export default function RetreatExperience() {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
-      {/* <section
+      <section
         id="contact"
         className="booking bg-[#f4f0e7] px-6 py-28 md:px-12 md:py-36"
       >
         <div className="booking-card mx-auto max-w-5xl rounded-[2rem] bg-[#17251d] p-8 text-white md:p-14">
-          <div className="grid gap-12 md:grid-cols-[1fr_auto] md:items-end">
+          <div className="grid gap-12 md:grid-cols-[.8fr_1.2fr] md:items-end">
             <div>
-              <p className="text-xs tracking-[.25em] text-[#d7bb7c]">
-                YOUR STAY STARTS HERE
-              </p>
+              <p className="text-xs tracking-[.25em] text-[#d7bb7c]">CONTACT</p>
               <h2 className="mt-5 text-5xl font-light tracking-[-.04em] md:text-7xl">
-                Book
+                Plan
                 <br />
-                <i>your escape today.</i>
+                <i>your escape.</i>
               </h2>
             </div>
-            <div className="flex flex-col gap-4">
-              <button className="flex items-center justify-center gap-3 rounded-full bg-[#d7bb7c] px-7 py-4 text-sm font-semibold text-[#17251d] transition-transform hover:scale-[1.03]">
-                <Phone size={17} /> 0000-0000
-              </button>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {[
+                ["HOYOR ZAGAL", "99984593"],
+                ["ALUNGOO GER HOTEL", "99098720"],
+                ["GURU", "99096714"],
+              ].map(([name, phone]) => (
+                <div
+                  className="border-t border-white/20 pt-4"
+                  key={name}
+                >
+                  <p className="text-xs leading-5 tracking-[.12em] text-white/55">
+                    {name}
+                  </p>
+                  <a
+                    href={`tel:${phone}`}
+                    className="mt-3 flex items-center gap-2 text-lg text-[#d7bb7c] transition-colors hover:text-white"
+                  >
+                    <Phone size={16} /> {phone}
+                  </a>
+                </div>
+              ))}
+              <a
+                href="mailto:info@hoyorzagal.mn"
+                className="border-t border-white/20 pt-4 text-sm text-white/75 transition-colors hover:text-[#d7bb7c] sm:col-span-3"
+              >
+                <span className="flex items-center gap-2">
+                  <Mail size={16} /> info@hoyorzagal.mn
+                </span>
+              </a>
             </div>
           </div>
         </div>
